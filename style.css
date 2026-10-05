@@ -1521,3 +1521,100 @@ code {
     margin: 0 0 42px;
   }
 }
+
+
+/* =========================================
+   v16.3 — mobile hero: show full ANURA artwork
+   ========================================= */
+
+@media (max-width: 700px) {
+  /* On phones the landscape artwork should be shown in full,
+     rather than being cropped to fill a tall hero area. */
+  .hero.hero-visual {
+    min-height: 0;
+    padding: 72px 20px 42px;
+    display: block;
+    background: var(--paper);
+  }
+
+  .hero.hero-visual .hero-art {
+    position: relative;
+    inset: auto;
+    width: calc(100% + 40px);
+    height: auto;
+    min-height: 0;
+    margin: 0 -20px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+
+  .hero.hero-visual .hero-art img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  /* Keep the text/buttons in the same content alignment,
+     but below the complete artwork on small screens. */
+  .hero.hero-visual .hero-panel {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    margin: 24px 0 0;
+    padding: 22px 22px 23px;
+  }
+
+  .hero.hero-visual .scroll-hint {
+    display: none;
+  }
+}
+
+
+/* =========================================
+   v16.4 — verified mobile corrections
+   ========================================= */
+
+@media (max-width: 820px) {
+  /* Match the opened mobile navigation to the dark header/footer.
+     This also keeps the light navigation text readable. */
+  .main-nav {
+    background:
+      radial-gradient(circle at 18% 20%, rgba(166,176,150,.12), transparent 28%),
+      var(--graphite-deep);
+  }
+
+  .main-nav a {
+    color: rgba(246, 243, 236, .82);
+  }
+
+  .main-nav a:hover,
+  .main-nav a:focus-visible {
+    color: var(--paper);
+  }
+}
+
+@media (max-width: 700px) {
+  /* The fixed mobile header is roughly 84px high.
+     Leave enough room so no part of the artwork sits underneath it. */
+  .hero.hero-visual {
+    padding-top: 88px;
+  }
+
+  /* Preserve the entire landscape artwork on phone screens. */
+  .hero.hero-visual .hero-art {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .hero.hero-visual .hero-art img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center center;
+  }
+}
